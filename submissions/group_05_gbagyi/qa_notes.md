@@ -13,7 +13,7 @@ range. You do not need to speak Gbagyi to do this. Flag any line that shows:
 ## Findings
 
 | Line number | Problem observed |
-|001|100|
+|---|---|
 | 1-100 | No English words found |
 | 1-100 | No website text found |
 | 1-100 | No numbers found |
