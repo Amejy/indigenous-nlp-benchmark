@@ -40,8 +40,10 @@ Note the orthographic difference between the two editions: GAW writes
 uses the schwa character `ə`. This orthographic variation across editions of
 the same language is discussed in the Zipf synthesis section of the report.
 
-## Compliance statement:Scraper source code is included at
-submissions/group_05_gbagyi/scraper.py
+## Compliance statement
+
 No pre-existing dataset from Hugging Face, Kaggle or any published paper was
 used. All text was retrieved directly by the Python scraper included in
 `HW1_assignment.ipynb`.
+
+Scraper source code is included at submissions/group_05_gbagyi/scraper.py
