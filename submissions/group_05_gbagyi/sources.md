@@ -13,7 +13,7 @@
 | Landing page | https://www.bible.com/versions/1621-gaw-alkawali-woiwoyi |
 | Language page | https://www.bible.com/languages/gbr |
 | URL pattern | https://www.bible.com/bible/1621/<BOOK>.<CHAPTER>.GAW |
-| Chapters retrieved | 260 (full New Testament) |
+| Chapters retrieved | 260 (full New Testament, 0 failures) |
 | Collection date | 31 August 2026|
 | Method | Python requests + BeautifulSoup |
 | Crawl delay | 1.5 seconds between requests |
