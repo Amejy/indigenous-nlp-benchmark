@@ -1,11 +1,16 @@
 # Corpus Quality Assurance Notes - Group 05
 
-Reviewer: ___
-Lines reviewed: ___ to ___
-Date: ___
+Reviewer: __usman ayuba zago 
+Lines reviewed: _1__ to __100_
+Date: 31/08/2026
 
 ## What to look for
 
+Findings:
+- No English words found.
+- No website text found.
+- No numbers found.
+- Found punctuation attached to words in several places (e.g. semicolons, colons, exclamation marks, and parentheses).
 Open `data/gbagyi/processed/cleaned_corpus_group_05.txt` and read your assigned
 range. You do not need to speak Gbagyi to do this. Flag any line that shows:
 
@@ -26,6 +31,6 @@ range. You do not need to speak Gbagyi to do this. Flag any line that shows:
 
 ## Summary
 
-Total lines reviewed: ___
-Problems found: ___
-Overall assessment: ___
+Total lines reviewed: 100
+Problems found: 0
+Overall assessment: it's all clean
