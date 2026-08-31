@@ -13,28 +13,16 @@ range. You do not need to speak Gbagyi to do this. Flag any line that shows:
 ## Findings
 
 | Line number | Problem observed |
-|---|---|
-| ___ | ___ |
-| ___ | ___ |
-| ___ | ___ |
+|001|100|
+| 1-100 | No English words found |
+| 1-100 | No website text found |
+| 1-100 | No numbers found |
+| 1-100 | Found punctuation attached to words in several places (e.g. semicolons, colons, exclamation marks, and parentheses) |
 
 ## Summary
 
 Total lines reviewed: 100
 Problems found: 0
 Overall assessment: it's all clean
-
-
-
-##  Final Review
-Reviewer: __usman ayuba zago 
-Lines reviewed: _1__ to __100_
+Reviewer: usman ayuba zago 
 Date: 31/08/2026
-
-## What to look for
-
-Findings:
-- No English words found.
-- No website text found.
-- No numbers found.
-- Found punctuation attached to words in several places (e.g. semicolons, colons, exclamation marks, and parentheses).
