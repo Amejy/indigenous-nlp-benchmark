@@ -18,7 +18,7 @@
 | Method | Python requests + BeautifulSoup |
 | Crawl delay | 1.5 seconds between requests |
 | robots.txt reviewed | Yes |
-
+| Total characters retrieved | 1,785,064 |
 ## Book codes retrieved
 
 MAT (28), MRK (16), LUK (24), JHN (21), ACT (28), ROM (16), 1CO (16),
