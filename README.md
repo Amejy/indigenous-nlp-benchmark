@@ -1,5 +1,5 @@
 I'm# Indigenous NLP Benchmark
-
+Oladeji Abdulroqeeb u22/FNS/CSC/1039
 A university-level low-resource Natural Language Processing assignment focusing on **Nupe** and **Gbagyi** languages.
 
 ## Overview
