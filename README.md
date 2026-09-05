@@ -1,4 +1,4 @@
-# Indigenous NLP Benchmark
+I'm# Indigenous NLP Benchmark
 
 A university-level low-resource Natural Language Processing assignment focusing on **Nupe** and **Gbagyi** languages.
 
@@ -144,4 +144,4 @@ This repository is provided for educational purposes under the MIT License.
 **Course Name**: CSC 406 - Artificial Intelligence
 **Course Level**: Beginner to Intermediate NLP / Linguistics  
 **Duration**: 1 week - Due September 1st 2026
-###Umar Abdulrahman - Web development 
+### Umar Abdulrahman - Web development 
