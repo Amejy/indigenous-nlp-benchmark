@@ -17,16 +17,10 @@
 | 11 | Abass Abass Abolaji | U22/FNS/CSC/1298 | Web Development | @abassabolaji |
 | 12 | Suleiman Abdullahi Garba | U22/FEA/SED/1237 | Python/Data Processing, GitHub | @suleimangarba |
 | 13 | Isyaku Shuaibu Hassan | U22/FNS/CSC/1219 | Data Collection | @isyakushuaibu |
-| 14 | Member 14 | U22/FNS/CSC/XXXX | Data Collection | @user14 |
-| 15 | Member 15 | U22/FNS/CSC/XXXX | Data Collection | @user15 |
-| 16 | Member 16 | U22/FNS/CSC/XXXX | Data Collection | @user16 |
-| 17 | Member 17 | U22/FNS/CSC/XXXX | Data Collection | @user17 |
-| 18 | Member 18 | U22/FNS/CSC/XXXX | Data Collection | @user18 |
-| 19 | Member 19 | U22/FNS/CSC/XXXX | Data Collection | @user19 |
 
 ## Summary
 
-- **Total Contributors:** 19
+- **Total Contributors:** 13
 - **Language:** Nupe
 - **Group:** 01
 - **Status:** Complete
