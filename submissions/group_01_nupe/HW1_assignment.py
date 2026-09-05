@@ -35,7 +35,7 @@ from bs4 import BeautifulSoup
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT / "data" / "nup"
+DATA_DIR = ROOT / "data" / "nupe"
 RAW_DIR = DATA_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
 TESTS_DIR = ROOT / "tests"
