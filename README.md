@@ -1,4 +1,4 @@
-echo "Contributor: [Muhammad Abdullahi Waleed]" >> CONTRIBUTORS.md
+echo "Contributor: [Umar Abdulrahman]" >> CONTRIBUTORS.md
 git add CONTRIBUTORS.md
 git commit -m "Added my name - [Muhammad Abdullahi Waleed]"
 echo "[Muhammad Abdullahi Waleed] - [U22/FNS/CSC/1308]" > my_profile.txt
