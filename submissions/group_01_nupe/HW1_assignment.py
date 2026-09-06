@@ -511,12 +511,15 @@ def fit_zipf_law(token_list: Sequence[str] | str) -> Tuple[float, Dict[str, int]
 
 
 class BigramModel:
-    """A Laplace-smoothed bigram language model."""
+    """A smoothed bigram language model with assignment-compatible helpers."""
 
-    def __init__(self) -> None:
-        self.unigrams: Dict[str, int] = defaultdict(int)
-        self.bigrams: Dict[Tuple[str, str], int] = defaultdict(int)
-        self.vocab_size: int = 0
+    def __init__(self, smoothing: float = 1.0) -> None:
+        self.smoothing = smoothing
+        self.unigrams: Counter[str] = Counter()
+        self.bigrams: defaultdict[str, Counter[str]] = defaultdict(Counter)
+        self.total_tokens = 0
+        self.vocab: set[str] = set()
+        self.vocab_size = 0
 
     def _tokenize_file(self, path: str | Path) -> List[List[str]]:
         sentences: List[List[str]] = []
@@ -527,32 +530,49 @@ class BigramModel:
                     sentences.append(tokens)
         return sentences
 
-    def fit(self, corpus_file_path: str | Path) -> int:
-        """Fit the model on a tokenized corpus file."""
+    def fit(self, corpus_path: str | Path) -> int:
+        """Train on a corpus file and return the unique bigram count."""
 
+        tokenized = self._tokenize_file(corpus_path)
         self.unigrams.clear()
         self.bigrams.clear()
+        self.total_tokens = 0
+        self.vocab.clear()
 
-        total_bigrams = 0
-        for tokens in self._tokenize_file(corpus_file_path):
-            sequence = ["<s>"] + tokens + ["</s>"]
-            for token in sequence:
+        # Boundary tokens let the model predict sentence starts and endings.
+        bounded_sentences = [
+            ["<s>"] + tokens + ["</s>"] for tokens in tokenized
+        ]
+        self.train(bounded_sentences)
+        return sum(len(next_words) for next_words in self.bigrams.values())
+
+    def train(self, sentences: Iterable[Sequence[str]]) -> None:
+        """Train the model on already-tokenized sentences."""
+
+        for tokens in sentences:
+            tokens = list(tokens)
+            for token in tokens:
                 self.unigrams[token] += 1
-            for left, right in zip(sequence, sequence[1:]):
-                self.bigrams[(left, right)] += 1
-                total_bigrams += 1
+                self.vocab.add(token)
+                self.total_tokens += 1
+            for left, right in zip(tokens, tokens[1:]):
+                self.bigrams[left][right] += 1
+                self.vocab.add(right)
+        self.vocab_size = len(self.vocab)
 
-        self.vocab_size = len(self.unigrams)
-        return total_bigrams
-
-    def get_probability(self, w1: str, w2: str) -> float:
-        """Laplace-smoothed conditional probability P(w2|w1)."""
+    def bigram_prob(self, previous: str, current: str) -> float:
+        """Calculate smoothed conditional probability P(current|previous)."""
 
         if self.vocab_size == 0:
             return 0.0
-        bigram_count = self.bigrams.get((w1, w2), 0)
-        unigram_count = self.unigrams.get(w1, 0)
-        return (bigram_count + 1) / (unigram_count + self.vocab_size)
+        numerator = self.bigrams[previous].get(current, 0) + self.smoothing
+        denominator = self.unigrams.get(previous, 0) + self.smoothing * self.vocab_size
+        return numerator / denominator
+
+    def get_probability(self, w1: str, w2: str) -> float:
+        """Backward-compatible alias for :meth:`bigram_prob`."""
+
+        return self.bigram_prob(w1, w2)
 
     def predict_next_word(self, phrase: str, top_k: int = 5) -> List[Tuple[str, float]]:
         """Predict the most likely next words after a phrase."""
@@ -564,7 +584,7 @@ class BigramModel:
         for word in self.unigrams:
             if word == "<s>":
                 continue
-            probability = self.get_probability(context, word)
+            probability = self.bigram_prob(context, word)
             candidates.append((word, probability))
 
         candidates.sort(key=lambda item: (-item[1], item[0]))
@@ -581,7 +601,7 @@ class BigramModel:
         total_log_prob = 0.0
         token_count = 0
         for left, right in zip(sequence, sequence[1:]):
-            probability = self.get_probability(left, right)
+            probability = self.bigram_prob(left, right)
             total_log_prob += math.log2(probability)
             token_count += 1
         return float(2 ** (-total_log_prob / token_count))
@@ -600,7 +620,7 @@ class BigramModel:
 
         for _ in range(max_length):
             candidates = [
-                (word, self.get_probability(context, word))
+                (word, self.bigram_prob(context, word))
                 for word in self.unigrams
                 if word not in {"<s>"}
             ]
@@ -645,7 +665,7 @@ class BigramModel:
         for tokens in self._tokenize_file(test_file_path):
             sequence = ["<s>"] + tokens + ["</s>"]
             for left, right in zip(sequence, sequence[1:]):
-                probability = self.get_probability(left, right)
+                probability = self.bigram_prob(left, right)
                 total_log_prob += math.log2(probability)
                 token_count += 1
 
@@ -653,6 +673,26 @@ class BigramModel:
             return float("inf")
 
         return float(2 ** (-total_log_prob / token_count))
+
+    def perplexity(self, test_sentences: Iterable[Sequence[str]]) -> float:
+        """Calculate perplexity for tokenized test sentences."""
+
+        total_log2 = 0.0
+        token_count = 0
+        for tokens in test_sentences:
+            for index, word in enumerate(tokens):
+                if index == 0:
+                    probability = (
+                        self.unigrams.get(word, 0) + self.smoothing
+                    ) / (self.total_tokens + self.smoothing * self.vocab_size)
+                else:
+                    probability = self.bigram_prob(tokens[index - 1], word)
+                total_log2 += math.log2(probability)
+                token_count += 1
+
+        if token_count == 0:
+            return float("inf")
+        return float(2 ** (-total_log2 / token_count))
 
 
 def _maybe_create_test_split(sentences: Sequence[str]) -> Tuple[Path, Path]:
