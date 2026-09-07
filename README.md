@@ -149,3 +149,4 @@ This repository is provided for educational purposes under the MIT License.
 - Web Dev
 - CSC 406 Artificial intelligence 
 - Shuaibu Muhammad - U22/FNS/CSC/1009 - Data Collection
+- Oladeji Abdulroqeeb - U22/FNS/CSC/1039 - Data Collection 
