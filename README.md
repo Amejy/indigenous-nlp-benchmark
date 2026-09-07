@@ -147,3 +147,4 @@ This repository is provided for educational purposes under the MIT License.
 - Mohammed Haruna - U22/FNS/CSC/1238 - Data Processing, NLP
 - Umar Abdulrahman - U22/FNS/CSC/1005 - Web Development
 - Web Dev
+- CSC 406 Artificial intelligence 
