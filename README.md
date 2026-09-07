@@ -8,4 +8,4 @@ Update README
 echo "### [Suleiman Abdullahi Garba] - [Python/Data processing]" >> README.md
 git add README.md
 git commit -m "Updated README"
-Suleiman Abdullahi Garba 
+Suleiman Abdullahi Garba
