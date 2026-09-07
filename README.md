@@ -148,3 +148,4 @@ This repository is provided for educational purposes under the MIT License.
 - Umar Abdulrahman - U22/FNS/CSC/1005 - Web Development
 - Web Dev
 - CSC 406 Artificial intelligence 
+- Shuaibu Muhammad - U22/FNS/CSC/1009 - Data Collection
