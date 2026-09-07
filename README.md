@@ -145,3 +145,4 @@ This repository is provided for educational purposes under the MIT License.
 **Course Level**: Beginner to Intermediate NLP / Linguistics  
 **Duration**: 1 week - Due September 1st 2026
 - Mohammed Haruna - U22/FNS/CSC/1238 - Data Processing, NLP
+- Umar Abdulrahman - U22/FNS/CSC/1005 - Web Development
