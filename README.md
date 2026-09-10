@@ -149,6 +149,5 @@ This repository is provided for educational purposes under the MIT License.
 - Web Dev
 - CSC 406 Artificial intelligence 
 - Shuaibu Muhammad - U22/FNS/CSC/1009 - Data Collection
-- Suleiman Abdullahi Garba - U22/FEA/SED/1237 - Data processing, NLP
-- 
-- 
+- Suleiman Abdullahi Garba - U22/FEA/SED/1237 - Data processing, NLP  -
+- Umar Faruk Musa - U22/FNS/CSC/1294- Web development 
